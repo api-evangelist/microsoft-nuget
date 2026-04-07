@@ -7,10 +7,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Package Management
-  - NuGet
   - .NET
   - Microsoft
+  - NuGet
+  - Package Management
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-nuget/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-03-16'
@@ -19,9 +19,9 @@ apis:
   - aid: microsoft-nuget:server-api
     name: NuGet Server API
     tags:
-      - Package Management
-      - NuGet
       - .NET
+      - NuGet
+      - Package Management
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://api.nuget.org/v3/
     humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
