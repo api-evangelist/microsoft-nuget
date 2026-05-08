@@ -1,0 +1,224 @@
+openapi: 3.1.0
+info:
+  title: NuGet Server API (V3)
+  description: >-
+    Minimal OpenAPI definition for the NuGet V3 HTTP protocol covering the
+    service index, package content (PackageBaseAddress), package metadata
+    (RegistrationsBaseUrl), search, autocomplete, and package publish.
+  version: '3'
+  x-generated-from: https://learn.microsoft.com/en-us/nuget/api/overview
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+  - url: https://api.nuget.org/v3
+    description: nuget.org V3 service host
+paths:
+  /index.json:
+    get:
+      summary: Service index
+      operationId: getServiceIndex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /flatcontainer/{id}/index.json:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+    get:
+      summary: Enumerate package versions (PackageBaseAddress)
+      operationId: getPackageVersions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /flatcontainer/{id}/{version}/{id2}.{version2}.nupkg:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+      - in: path
+        name: version
+        required: true
+        schema: { type: string }
+      - in: path
+        name: id2
+        required: true
+        schema: { type: string }
+      - in: path
+        name: version2
+        required: true
+        schema: { type: string }
+    get:
+      summary: Download package content (.nupkg)
+      operationId: downloadPackageContent
+      responses:
+        '200':
+          description: OK
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+  /flatcontainer/{id}/{version}/{id2}.nuspec:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+      - in: path
+        name: version
+        required: true
+        schema: { type: string }
+      - in: path
+        name: id2
+        required: true
+        schema: { type: string }
+    get:
+      summary: Download package manifest (.nuspec)
+      operationId: downloadPackageManifest
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                type: string
+  /registration5-gz-semver2/{id}/index.json:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+    get:
+      summary: Get package registration index (RegistrationsBaseUrl)
+      operationId: getRegistrationIndex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /registration5-gz-semver2/{id}/{version}.json:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+      - in: path
+        name: version
+        required: true
+        schema: { type: string }
+    get:
+      summary: Get package registration leaf
+      operationId: getRegistrationLeaf
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /query:
+    get:
+      summary: Search query service
+      operationId: searchPackages
+      parameters:
+        - in: query
+          name: q
+          schema: { type: string }
+        - in: query
+          name: skip
+          schema: { type: integer }
+        - in: query
+          name: take
+          schema: { type: integer }
+        - in: query
+          name: prerelease
+          schema: { type: boolean }
+        - in: query
+          name: semVerLevel
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /autocomplete:
+    get:
+      summary: Search autocomplete service
+      operationId: searchAutocomplete
+      parameters:
+        - in: query
+          name: q
+          schema: { type: string }
+        - in: query
+          name: id
+          schema: { type: string }
+        - in: query
+          name: skip
+          schema: { type: integer }
+        - in: query
+          name: take
+          schema: { type: integer }
+        - in: query
+          name: prerelease
+          schema: { type: boolean }
+        - in: query
+          name: semVerLevel
+          schema: { type: string }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObject'
+  /package:
+    put:
+      summary: Push a package (PackagePublish)
+      operationId: pushPackage
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                package:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Created
+        '202':
+          description: Accepted
+  /package/{id}/{version}:
+    parameters:
+      - $ref: '#/components/parameters/PackageId'
+      - in: path
+        name: version
+        required: true
+        schema: { type: string }
+    delete:
+      summary: Delete or unlist a package (PackagePublish)
+      operationId: deletePackage
+      security:
+        - apiKeyAuth: []
+      responses:
+        '204':
+          description: No Content
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-NuGet-ApiKey
+  parameters:
+    PackageId:
+      in: path
+      name: id
+      required: true
+      schema: { type: string }
+  schemas:
+    GenericObject:
+      type: object
+      additionalProperties: true
