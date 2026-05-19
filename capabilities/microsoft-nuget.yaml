@@ -1,0 +1,431 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NuGet Server API (V3)
+  description: 'NuGet Server API (V3). 10 operations. Lead operation: Search autocomplete service. Self-contained Naftiko
+    capability covering one Microsoft Nuget business surface.'
+  tags:
+  - Microsoft Nuget
+  - NuGet Server API (V3)
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_NUGET_API_KEY: MICROSOFT_NUGET_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: microsoft-nuget
+    baseUri: https://api.nuget.org/v3
+    description: NuGet Server API (V3) business capability. Self-contained, no shared references.
+    resources:
+    - name: autocomplete
+      path: /autocomplete
+      operations:
+      - name: searchautocomplete
+        method: GET
+        description: Search autocomplete service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+        - name: id
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: integer
+        - name: take
+          in: query
+          type: integer
+        - name: prerelease
+          in: query
+          type: boolean
+        - name: semVerLevel
+          in: query
+          type: string
+    - name: flatcontainer-id-index.json
+      path: /flatcontainer/{id}/index.json
+      operations:
+      - name: getpackageversions
+        method: GET
+        description: Enumerate package versions (PackageBaseAddress)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: flatcontainer-id-version-id2}.nuspec
+      path: /flatcontainer/{id}/{version}/{id2}.nuspec
+      operations:
+      - name: downloadpackagemanifest
+        method: GET
+        description: Download package manifest (.nuspec)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: flatcontainer-id-version-id2}.{version2}.nupkg
+      path: /flatcontainer/{id}/{version}/{id2}.{version2}.nupkg
+      operations:
+      - name: downloadpackagecontent
+        method: GET
+        description: Download package content (.nupkg)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: index.json
+      path: /index.json
+      operations:
+      - name: getserviceindex
+        method: GET
+        description: Service index
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: package
+      path: /package
+      operations:
+      - name: pushpackage
+        method: PUT
+        description: Push a package (PackagePublish)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: package-id-version
+      path: /package/{id}/{version}
+      operations:
+      - name: deletepackage
+        method: DELETE
+        description: Delete or unlist a package (PackagePublish)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: query
+      path: /query
+      operations:
+      - name: searchpackages
+        method: GET
+        description: Search query service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: integer
+        - name: take
+          in: query
+          type: integer
+        - name: prerelease
+          in: query
+          type: boolean
+        - name: semVerLevel
+          in: query
+          type: string
+    - name: registration5-gz-semver2-id-index.json
+      path: /registration5-gz-semver2/{id}/index.json
+      operations:
+      - name: getregistrationindex
+        method: GET
+        description: Get package registration index (RegistrationsBaseUrl)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: registration5-gz-semver2-id-version}.json
+      path: /registration5-gz-semver2/{id}/{version}.json
+      operations:
+      - name: getregistrationleaf
+        method: GET
+        description: Get package registration leaf
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: X-NuGet-ApiKey
+      value: '{{env.MICROSOFT_NUGET_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: microsoft-nuget-rest
+    port: 8080
+    description: REST adapter for NuGet Server API (V3). One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/autocomplete
+      name: autocomplete
+      description: REST surface for autocomplete.
+      operations:
+      - method: GET
+        name: searchautocomplete
+        description: Search autocomplete service
+        call: microsoft-nuget.searchautocomplete
+        with:
+          q: rest.q
+          id: rest.id
+          skip: rest.skip
+          take: rest.take
+          prerelease: rest.prerelease
+          semVerLevel: rest.semVerLevel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/flatcontainer/{id}/index-json
+      name: flatcontainer-id-index-json
+      description: REST surface for flatcontainer-id-index.json.
+      operations:
+      - method: GET
+        name: getpackageversions
+        description: Enumerate package versions (PackageBaseAddress)
+        call: microsoft-nuget.getpackageversions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/flatcontainer/{id}/{version}/id2-nuspec
+      name: flatcontainer-id-version-id2-nuspec
+      description: REST surface for flatcontainer-id-version-id2}.nuspec.
+      operations:
+      - method: GET
+        name: downloadpackagemanifest
+        description: Download package manifest (.nuspec)
+        call: microsoft-nuget.downloadpackagemanifest
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/flatcontainer/{id}/{version}/id2-version2-nupkg
+      name: flatcontainer-id-version-id2-version2-nupkg
+      description: REST surface for flatcontainer-id-version-id2}.{version2}.nupkg.
+      operations:
+      - method: GET
+        name: downloadpackagecontent
+        description: Download package content (.nupkg)
+        call: microsoft-nuget.downloadpackagecontent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/index-json
+      name: index-json
+      description: REST surface for index.json.
+      operations:
+      - method: GET
+        name: getserviceindex
+        description: Service index
+        call: microsoft-nuget.getserviceindex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/package
+      name: package
+      description: REST surface for package.
+      operations:
+      - method: PUT
+        name: pushpackage
+        description: Push a package (PackagePublish)
+        call: microsoft-nuget.pushpackage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/package/{id}/{version}
+      name: package-id-version
+      description: REST surface for package-id-version.
+      operations:
+      - method: DELETE
+        name: deletepackage
+        description: Delete or unlist a package (PackagePublish)
+        call: microsoft-nuget.deletepackage
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/query
+      name: query
+      description: REST surface for query.
+      operations:
+      - method: GET
+        name: searchpackages
+        description: Search query service
+        call: microsoft-nuget.searchpackages
+        with:
+          q: rest.q
+          skip: rest.skip
+          take: rest.take
+          prerelease: rest.prerelease
+          semVerLevel: rest.semVerLevel
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registration5-gz-semver2/{id}/index-json
+      name: registration5-gz-semver2-id-index-json
+      description: REST surface for registration5-gz-semver2-id-index.json.
+      operations:
+      - method: GET
+        name: getregistrationindex
+        description: Get package registration index (RegistrationsBaseUrl)
+        call: microsoft-nuget.getregistrationindex
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/registration5-gz-semver2/{id}/version-json
+      name: registration5-gz-semver2-id-version-json
+      description: REST surface for registration5-gz-semver2-id-version}.json.
+      operations:
+      - method: GET
+        name: getregistrationleaf
+        description: Get package registration leaf
+        call: microsoft-nuget.getregistrationleaf
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: microsoft-nuget-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for NuGet Server API (V3). One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-autocomplete-service
+      description: Search autocomplete service
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.searchautocomplete
+      with:
+        q: tools.q
+        id: tools.id
+        skip: tools.skip
+        take: tools.take
+        prerelease: tools.prerelease
+        semVerLevel: tools.semVerLevel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: enumerate-package-versions-packagebaseaddress
+      description: Enumerate package versions (PackageBaseAddress)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.getpackageversions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-package-manifest-nuspec
+      description: Download package manifest (.nuspec)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.downloadpackagemanifest
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-package-content-nupkg
+      description: Download package content (.nupkg)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.downloadpackagecontent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: service-index
+      description: Service index
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.getserviceindex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: push-package-packagepublish
+      description: Push a package (PackagePublish)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.pushpackage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-unlist-package-packagepublish
+      description: Delete or unlist a package (PackagePublish)
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: microsoft-nuget.deletepackage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-query-service
+      description: Search query service
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.searchpackages
+      with:
+        q: tools.q
+        skip: tools.skip
+        take: tools.take
+        prerelease: tools.prerelease
+        semVerLevel: tools.semVerLevel
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-package-registration-index-registrationsbaseurl
+      description: Get package registration index (RegistrationsBaseUrl)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.getregistrationindex
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-package-registration-leaf
+      description: Get package registration leaf
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: microsoft-nuget.getregistrationleaf
+      outputParameters:
+      - type: object
+        mapping: $.
