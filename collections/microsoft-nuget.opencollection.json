@@ -1,0 +1,278 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3)",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service index",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/index.json"
+      },
+      "docs": "Service index"
+    },
+    {
+      "info": {
+        "name": "Enumerate package versions (PackageBaseAddress)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/flatcontainer/:id/index.json",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Enumerate package versions (PackageBaseAddress)"
+    },
+    {
+      "info": {
+        "name": "Download package content (.nupkg)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id2.:version2.nupkg",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "version",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "id2",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "version2",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Download package content (.nupkg)"
+    },
+    {
+      "info": {
+        "name": "Download package manifest (.nuspec)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id2.nuspec",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "version",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "id2",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Download package manifest (.nuspec)"
+    },
+    {
+      "info": {
+        "name": "Get package registration index (RegistrationsBaseUrl)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/registration5-gz-semver2/:id/index.json",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get package registration index (RegistrationsBaseUrl)"
+    },
+    {
+      "info": {
+        "name": "Get package registration leaf",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/registration5-gz-semver2/:id/:version.json",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "version",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get package registration leaf"
+    },
+    {
+      "info": {
+        "name": "Search query service",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/query",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "take",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "prerelease",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "semVerLevel",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Search query service"
+    },
+    {
+      "info": {
+        "name": "Search autocomplete service",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.nuget.org/v3/autocomplete",
+        "params": [
+          {
+            "name": "q",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "id",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "skip",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "take",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "prerelease",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "semVerLevel",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Search autocomplete service"
+    },
+    {
+      "info": {
+        "name": "Push a package (PackagePublish)",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.nuget.org/v3/package",
+        "body": {
+          "type": "multipart-form",
+          "data": [
+            {
+              "name": "package",
+              "type": "text",
+              "value": ""
+            }
+          ]
+        },
+        "auth": {
+          "type": "apikey",
+          "key": "X-NuGet-ApiKey",
+          "value": "{{X-NuGet-ApiKey}}",
+          "placement": "header"
+        }
+      },
+      "docs": "Push a package (PackagePublish)"
+    },
+    {
+      "info": {
+        "name": "Delete or unlist a package (PackagePublish)",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://api.nuget.org/v3/package/:id/:version",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "version",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "auth": {
+          "type": "apikey",
+          "key": "X-NuGet-ApiKey",
+          "value": "{{X-NuGet-ApiKey}}",
+          "placement": "header"
+        }
+      },
+      "docs": "Delete or unlist a package (PackagePublish)"
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1099 @@
+{
+  "item": [
+    {
+      "id": "dfabbe0d-f5dd-48ac-9a03-37ea777206bf",
+      "name": "Service index",
+      "request": {
+        "name": "Service index",
+        "description": {},
+        "url": {
+          "path": [
+            "index.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2cf24ead-7461-413c-ba9d-b98e5a2cebcf",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "99ccf555-0a95-4db9-91ea-db8ae7e2b08c",
+      "name": "Enumerate package versions (PackageBaseAddress)",
+      "request": {
+        "name": "Enumerate package versions (PackageBaseAddress)",
+        "description": {},
+        "url": {
+          "path": [
+            "flatcontainer",
+            ":id",
+            "index.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a9780496-4b2a-41b9-8ed8-9c9b52ba4ff7",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c51055b1-1e98-4aaf-ac13-cc3b6d1c8870",
+      "name": "Download package content (.nupkg)",
+      "request": {
+        "name": "Download package content (.nupkg)",
+        "description": {},
+        "url": {
+          "path": [
+            "flatcontainer",
+            ":id",
+            ":version",
+            "{{id2}}.{{version2}}.nupkg"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "version",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/octet-stream"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "032c0044-3851-4c4a-b44c-57bbc1136f8a",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                ":version",
+                "{{id2}}.{{version2}}.nupkg"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/octet-stream"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "921de4f7-a0e9-4672-a4b9-9414cff4c4d2",
+      "name": "Download package manifest (.nuspec)",
+      "request": {
+        "name": "Download package manifest (.nuspec)",
+        "description": {},
+        "url": {
+          "path": [
+            "flatcontainer",
+            ":id",
+            ":version",
+            "{{id2}}.nuspec"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "version",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7576079f-f3cf-4837-becf-311594711872",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "flatcontainer",
+                ":id",
+                ":version",
+                "{{id2}}.nuspec"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/xml"
+            }
+          ],
+          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+          "cookie": [],
+          "_postman_previewlanguage": "xml"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4bd60c94-fbde-4542-b0fa-e690153f6e6e",
+      "name": "Get package registration index (RegistrationsBaseUrl)",
+      "request": {
+        "name": "Get package registration index (RegistrationsBaseUrl)",
+        "description": {},
+        "url": {
+          "path": [
+            "registration5-gz-semver2",
+            ":id",
+            "index.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "c81f3b64-61d7-4a5a-bb32-ffe5e362388c",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "registration5-gz-semver2",
+                ":id",
+                "index.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cc3edf20-b154-4fff-9f4d-094fef78b4f9",
+      "name": "Get package registration leaf",
+      "request": {
+        "name": "Get package registration leaf",
+        "description": {},
+        "url": {
+          "path": [
+            "registration5-gz-semver2",
+            ":id",
+            "{{version}}.json"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "032ba472-d9ab-425e-88f0-3562ecd2e128",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "registration5-gz-semver2",
+                ":id",
+                "{{version}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "34c3fe81-8021-45e9-ba6f-2765a3973186",
+      "name": "Search query service",
+      "request": {
+        "name": "Search query service",
+        "description": {},
+        "url": {
+          "path": [
+            "query"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "skip",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "take",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "prerelease",
+              "value": "<boolean>"
+            },
+            {
+              "disabled": false,
+              "key": "semVerLevel",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b69fa658-da62-4e97-a37c-427d700e0a57",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "take",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "prerelease",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "semVerLevel",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f028068d-0ce8-460a-949d-e08b542b1544",
+      "name": "Search autocomplete service",
+      "request": {
+        "name": "Search autocomplete service",
+        "description": {},
+        "url": {
+          "path": [
+            "autocomplete"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "q",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "id",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "skip",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "take",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "prerelease",
+              "value": "<boolean>"
+            },
+            {
+              "disabled": false,
+              "key": "semVerLevel",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "47bd92bf-3fa3-4843-8fdd-86e3ffcfe361",
+          "name": "OK",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "skip",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "take",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "prerelease",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "semVerLevel",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": false,\n  \"key_1\": true,\n  \"key_2\": \"string\",\n  \"key_3\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c7c523d7-0302-4aaf-bff0-89a8a9a74024",
+      "name": "Push a package (PackagePublish)",
+      "request": {
+        "name": "Push a package (PackagePublish)",
+        "description": {},
+        "url": {
+          "path": [
+            "package"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "method": "PUT",
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "key",
+              "value": "X-NuGet-ApiKey"
+            },
+            {
+              "key": "value",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "in",
+              "value": "header"
+            }
+          ]
+        },
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "package",
+              "type": "file",
+              "description": ""
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "811ca4ec-5823-4f25-9bfa-0f12c6ae0968",
+          "name": "Created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "package"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "X-NuGet-ApiKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "package",
+                  "value": "<binary>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "3cc07797-c784-4ef5-a466-a6a554a68657",
+          "name": "Accepted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "package"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "X-NuGet-ApiKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "package",
+                  "value": "<binary>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Accepted",
+          "code": 202,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "86e419bd-4569-48a7-b385-b4b8b981fc76",
+      "name": "Delete or unlist a package (PackagePublish)",
+      "request": {
+        "name": "Delete or unlist a package (PackagePublish)",
+        "description": {},
+        "url": {
+          "path": [
+            "package",
+            ":id",
+            ":version"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            },
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "version",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": {
+          "type": "apikey",
+          "apikey": [
+            {
+              "key": "key",
+              "value": "X-NuGet-ApiKey"
+            },
+            {
+              "key": "value",
+              "value": "{{apiKey}}"
+            },
+            {
+              "key": "in",
+              "value": "header"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "cb34dd7a-0832-42d0-9e7f-cdf80fdc9c10",
+          "name": "No Content",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "package",
+                ":id",
+                ":version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "X-NuGet-ApiKey",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.nuget.org/v3",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id2"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version2"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "version"
+    }
+  ],
+  "info": {
+    "_postman_id": "e3df6777-9d53-472e-a68a-cf3c0111b9e9",
+    "name": "NuGet Server API (V3)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Minimal OpenAPI definition for the NuGet V3 HTTP protocol covering the service index, package content (PackageBaseAddress), package metadata (RegistrationsBaseUrl), search, autocomplete, and package publish.",
+      "type": "text/plain"
+    }
+  }
+}
