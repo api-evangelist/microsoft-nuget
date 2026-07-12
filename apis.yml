@@ -36,6 +36,10 @@ apis:
       download package content, retrieve package metadata and versions, push new packages, and manage package listings.
       The API uses a service index pattern for resource discovery and supports both nuget.org and private feeds.
 common:
+  - type: DomainSecurity
+    url: security/microsoft-nuget-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-nuget-authentication.yml
   - type: Portal
     url: https://www.nuget.org/
   - type: Website
@@ -54,6 +58,8 @@ common:
     url: https://support.microsoft.com/
   - type: StatusPage
     url: https://status.nuget.org/
+  - url: https://devblogs.microsoft.com/dotnet/category/nuget/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
