@@ -36,6 +36,8 @@ apis:
       download package content, retrieve package metadata and versions, push new packages, and manage package listings.
       The API uses a service index pattern for resource discovery and supports both nuget.org and private feeds.
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-nuget-agentic-access.yml
   - type: DomainSecurity
     url: security/microsoft-nuget-domain-security.yml
   - type: Authentication
