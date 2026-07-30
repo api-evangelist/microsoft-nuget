@@ -4,7 +4,20 @@ description: >-
   NuGet is the package manager for .NET, hosted by Microsoft. It provides APIs for searching, downloading, publishing,
   and managing .NET packages through the NuGet Gallery and private feeds.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-nuget.png
 tags:
   - .NET
   - Microsoft
@@ -15,26 +28,91 @@ created: '2024-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: microsoft-nuget:server-api
-    name: NuGet Server API
-    tags:
-      - .NET
-      - NuGet
-      - Package Management
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.nuget.org/v3/
-    humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
-    properties:
-      - url: https://learn.microsoft.com/en-us/nuget/api/overview
-        type: Documentation
-      - url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
-        type: Reference
-      - url: openapi/microsoft-nuget-openapi.yml
-        type: OpenAPI
-    description: >-
-      The NuGet Server API (v3) provides RESTful access to the NuGet package registry. Developers can search packages,
-      download package content, retrieve package metadata and versions, push new packages, and manage package listings.
-      The API uses a service index pattern for resource discovery and supports both nuget.org and private feeds.
+- aid: microsoft-nuget:microsoft-nuget-autocomplete-api
+  name: Microsoft NuGet Autocomplete API
+  description: The Autocomplete API from Microsoft NuGet — 1 operation(s) for autocomplete.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Autocomplete
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-autocomplete-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
+- aid: microsoft-nuget:microsoft-nuget-flatcontainer-api
+  name: Microsoft NuGet Flatcontainer API
+  description: The Flatcontainer API from Microsoft NuGet — 3 operation(s) for flatcontainer.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Flatcontainer
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-flatcontainer-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
+- aid: microsoft-nuget:microsoft-nuget-index-json-api
+  name: Microsoft NuGet Index.json API
+  description: The Index.json API from Microsoft NuGet — 1 operation(s) for index.json.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Index.json
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-index-json-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
+- aid: microsoft-nuget:microsoft-nuget-package-api
+  name: Microsoft NuGet Package API
+  description: The Package API from Microsoft NuGet — 2 operation(s) for package.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Package
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-package-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
+- aid: microsoft-nuget:microsoft-nuget-query-api
+  name: Microsoft NuGet Query API
+  description: The Query API from Microsoft NuGet — 1 operation(s) for query.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-query-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
+- aid: microsoft-nuget:microsoft-nuget-registration5-gz-semver2-api
+  name: Microsoft NuGet Registration5 Gz Semver2 API
+  description: >-
+    The Registration5 Gz Semver2 API from Microsoft NuGet — 2 operation(s) for registration5 gz semver2.
+  humanURL: https://learn.microsoft.com/en-us/nuget/api/overview
+  baseURL: https://api.nuget.org/v3/
+  tags:
+  - Registration5 Gz Semver2
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-nuget-registration5-gz-semver2-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/nuget/api/overview
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/nuget/api/search-query-service-resource
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-nuget-agentic-access.yml
