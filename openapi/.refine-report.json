@@ -1,0 +1,24 @@
+{
+  "provider": "microsoft-nuget",
+  "sources": [
+    "microsoft-nuget-autocomplete-api-openapi.yml",
+    "microsoft-nuget-flatcontainer-api-openapi.yml",
+    "microsoft-nuget-index-json-api-openapi.yml",
+    "microsoft-nuget-package-api-openapi.yml",
+    "microsoft-nuget-query-api-openapi.yml",
+    "microsoft-nuget-registration5-gz-semver2-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-nuget-autocomplete-api-openapi.yml",
+    "microsoft-nuget-flatcontainer-api-openapi.yml",
+    "microsoft-nuget-index-json-api-openapi.yml",
+    "microsoft-nuget-package-api-openapi.yml",
+    "microsoft-nuget-query-api-openapi.yml",
+    "microsoft-nuget-registration5-gz-semver2-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
