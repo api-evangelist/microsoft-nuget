@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3) Autocomplete Flatcontainer API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Flatcontainer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Enumerate package versions (PackageBaseAddress)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/index.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enumerate package versions (PackageBaseAddress)"
+        },
+        {
+          "info": {
+            "name": "Download package content (.nupkg)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id2.:version2.nupkg",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download package content (.nupkg)"
+        },
+        {
+          "info": {
+            "name": "Download package manifest (.nuspec)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/flatcontainer/:id/:version/:id2.nuspec",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download package manifest (.nuspec)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3) Autocomplete Package API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Package",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Push a package (PackagePublish)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.nuget.org/v3/package",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "package",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-NuGet-ApiKey",
+              "value": "{{X-NuGet-ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Push a package (PackagePublish)"
+        },
+        {
+          "info": {
+            "name": "Delete or unlist a package (PackagePublish)",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.nuget.org/v3/package/:id/:version",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "X-NuGet-ApiKey",
+              "value": "{{X-NuGet-ApiKey}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Delete or unlist a package (PackagePublish)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

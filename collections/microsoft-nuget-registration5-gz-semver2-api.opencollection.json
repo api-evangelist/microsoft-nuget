@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3) Autocomplete Registration5 Gz Semver2 API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Registration5 Gz Semver2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get package registration index (RegistrationsBaseUrl)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/registration5-gz-semver2/:id/index.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get package registration index (RegistrationsBaseUrl)"
+        },
+        {
+          "info": {
+            "name": "Get package registration leaf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/registration5-gz-semver2/:id/:version.json",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get package registration leaf"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

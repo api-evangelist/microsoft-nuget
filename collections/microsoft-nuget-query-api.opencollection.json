@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NuGet Server API (V3) Autocomplete Query API",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search query service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.nuget.org/v3/query",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prerelease",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "semVerLevel",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search query service"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
